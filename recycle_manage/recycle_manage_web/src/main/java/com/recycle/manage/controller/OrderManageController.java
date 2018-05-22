@@ -37,6 +37,7 @@ public class OrderManageController {
             User user = this.userManageService.queryUserByToken(token);
 
             Boolean bool=this.orderManageService.saveOrder(order,user);
+            System.out.print("sssssssssssss");
             if (!bool) {//评估价为0，参数出错
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
             }
