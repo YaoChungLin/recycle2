@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/recycle_manage/_123.iml" filepath="$PROJECT_DIR$/recycle_manage/_123.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recycle_common/recycle_common.iml" filepath="$PROJECT_DIR$/recycle_common/recycle_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recycle_manage/recycle_manage.iml" filepath="$PROJECT_DIR$/recycle_manage/recycle_manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recycle_manage/recycle_manage_mapper/recycle_manage_mapper.iml" filepath="$PROJECT_DIR$/recycle_manage/recycle_manage_mapper/recycle_manage_mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recycle_manage/recycle_manage_pojo/recycle_manage_pojo.iml" filepath="$PROJECT_DIR$/recycle_manage/recycle_manage_pojo/recycle_manage_pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recycle_manage/recycle_manage_service/recycle_manage_service.iml" filepath="$PROJECT_DIR$/recycle_manage/recycle_manage_service/recycle_manage_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recycle_manage/recycle_manage_web/recycle_manage_web.iml" filepath="$PROJECT_DIR$/recycle_manage/recycle_manage_web/recycle_manage_web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recycle_parent/recycle_parent.iml" filepath="$PROJECT_DIR$/recycle_parent/recycle_parent.iml" />
+    </modules>
+  </component>
+</project>
