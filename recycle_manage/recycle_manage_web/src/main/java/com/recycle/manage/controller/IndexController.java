@@ -24,7 +24,6 @@ public class IndexController {
     public ModelAndView toIndexPage(){
         ModelAndView mv=new ModelAndView("indexFirst");
         ItemCatResult itemCatResult=this.apiItemCatController.queryAllToTree();
-        System.out.print(itemCatResult);
         mv.addObject("itemCatResult",itemCatResult);
         return mv;
     }

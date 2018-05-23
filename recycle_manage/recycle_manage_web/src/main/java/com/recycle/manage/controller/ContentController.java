@@ -83,7 +83,7 @@ public class ContentController {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
-    /*
+    /**
      * 删除用户
      */
     @RequestMapping(value="delete",method=RequestMethod.POST)

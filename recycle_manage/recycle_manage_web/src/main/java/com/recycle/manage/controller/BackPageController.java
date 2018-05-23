@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /*
- * 后台页面通用的页面跳转
+ * 通用的页面跳转
  */
 @RequestMapping("page")
 @Controller

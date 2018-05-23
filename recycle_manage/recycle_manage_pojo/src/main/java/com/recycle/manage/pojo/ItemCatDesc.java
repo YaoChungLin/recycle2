@@ -2,7 +2,7 @@ package com.recycle.manage.pojo;
 
 import javax.persistence.*;
 
-@Table(name = "tb_item_desc")
+@Table(name = "tb_item_cat_desc")
 public class ItemCatDesc extends BasePojo {
 
     @Id

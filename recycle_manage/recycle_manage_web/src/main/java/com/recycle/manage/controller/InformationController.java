@@ -20,9 +20,5 @@ public class InformationController {
         return  mv;
     }
 
-        /*@RequestMapping(value="{pageName}",method= RequestMethod.GET)
-        public String toPage(@PathVariable("pageName") String pageName){
 
-            return pageName;
-        }*/
 }

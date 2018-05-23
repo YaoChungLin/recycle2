@@ -44,36 +44,8 @@ var itemListToolbar = [{
     		return ;
     	}
     	TT.createWindow({
-			url : ""
+			url : "/rest/page/itemcatdesc-add"
 		}); 
-    }
-},{
-    text:'编辑',
-    iconCls:'icon-edit',
-    handler:function(){
-    	var ids = TT.getSelectionsIds("#itemList");
-    	if(ids.length == 0){
-    		$.messager.alert('提示','必须选择一个内容才能编辑!');
-    		return ;
-    	}
-    	if(ids.indexOf(',') > 0){
-    		$.messager.alert('提示','只能选择一个内容!');
-    		return ;
-    	}
-		TT.createWindow({
-			url : "",
-			onLoad : function(){
-				var data = $("#itemList").datagrid("getSelections")[0];
-				$("#itemEditForm").form("load",data);
-				
-				// 实现图片
-				if(data.pic){
-					$("#itemEditForm [name=pic]").after("<a href='"+data.pic+"' target='_blank'><img src='"+data.pic+"' width='80' height='50'/></a>");
-				}
-				
-				itemEditEditor.html(data.item);
-			}
-		});
     }
 },{
     text:'删除',
@@ -89,7 +61,7 @@ var itemListToolbar = [{
                 var params = {"ids":ids};
                 $.ajax({
                     type: "POST",
-                    url: "",
+                    url: "/rest/itemcatdesc/delete",
                     data: params,
                     statusCode:{
                         201:function(){

@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>数码回收后台管理系统</title>
+<title>数码在线回收后台管理系统</title>
 <jsp:include page="/commons/common-js.jsp"></jsp:include>
 <style type="text/css">
 	.content {

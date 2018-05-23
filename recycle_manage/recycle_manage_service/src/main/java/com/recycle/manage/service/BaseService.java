@@ -6,7 +6,6 @@ import java.util.List;
 import com.github.abel533.entity.Example;
 import com.github.abel533.mapper.Mapper;
 import com.recycle.manage.pojo.BasePojo;
-import com.recycle.manage.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
 

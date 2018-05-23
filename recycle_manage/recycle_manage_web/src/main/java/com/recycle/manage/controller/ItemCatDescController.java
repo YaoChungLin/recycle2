@@ -41,7 +41,7 @@ public class ItemCatDescController {
     /**
      *  根据内容分类id查询分类列表
      *  
-     * @param categoryId
+     * @param catId
      * @param page
      * @param rows
      * @return
