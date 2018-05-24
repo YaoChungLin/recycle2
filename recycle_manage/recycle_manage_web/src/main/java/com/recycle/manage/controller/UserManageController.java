@@ -128,7 +128,7 @@ public class UserManageController {
      * 新增用户
      */
     @RequestMapping( value = "doRegister",method=RequestMethod.POST)
-    public String saveUser( User user){
+    public String registerUser( User user){
         try {
             if(StringUtils.isEmpty(user.getUsername())){
                 //参数有误，400
@@ -147,8 +147,8 @@ public class UserManageController {
        return "failure";
     }
 
-    /*@RequestMapping( value = "doRegister",method=RequestMethod.POST)
-    public ResponseEntity<Void> saveUser(@RequestBody User user){
+    @RequestMapping( value = "saveuser",method=RequestMethod.POST)
+    public ResponseEntity<Void> saveUser( User user){
         try {
             if(StringUtils.isEmpty(user.getUsername())){
                 //参数有误，400
@@ -164,7 +164,7 @@ public class UserManageController {
             e.printStackTrace();
         }
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-    }*/
+    }
 
 
     /**

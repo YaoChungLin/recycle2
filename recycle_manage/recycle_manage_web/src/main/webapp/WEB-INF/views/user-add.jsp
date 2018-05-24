@@ -51,7 +51,7 @@
 		//提交到后台的RESTful
 		$.ajax({
 		   type: "POST",
-		   url: "/rest/user",
+		   url: "/rest/user/saveuser",
 		   data: $("#itemAddForm").serialize(),
 		   statusCode:{
 			 201:function(){

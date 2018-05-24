@@ -65,12 +65,12 @@ var itemListToolbar = [{
                     data: params,
                     statusCode:{
                         201:function(){
-                            $.messager.alert('提示','删除用户成功!','info',function(){
+                            $.messager.alert('提示','删除成功!','info',function(){
                                 $("#itemList").datagrid("reload");
                             });
                         },
                         500:function(){
-                            $.messager.alert('提示','删除用户失败!');
+                            $.messager.alert('提示','删除失败!');
                         },
                         400:function(){
                             $.messager.alert('提示','参数有误，请检查后提交!');
