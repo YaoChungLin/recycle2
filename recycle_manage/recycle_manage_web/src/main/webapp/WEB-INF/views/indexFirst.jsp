@@ -14,7 +14,7 @@
 	<!-- nav star -->
 	<div class="nav">
 				<div class="w">
-					<img class="logo" src="/img/logo3.png"></img>
+					<img class="logo" src="/img/Logo4.png"></img>
 					<span>测试用语</span>
 					<ul class="ter">
 						<form action="#" method="post">
@@ -161,27 +161,31 @@
 <script type="text/javascript" src="/js/scroll.js"></script>
 <script type="text/javascript" src="/js/template-native.js"></script>
 <script type="text/javascript" src="/js/index.js"></script>
-
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
 <script>
 	$(function () {
-	    //一级类目
-	    <c:forEach items="${itemCatResult.itemCats}" var="i">
-			console.log("${i.name}"+"${i.url}");
-		</c:forEach>
 
-		console.log("-------------");
+		var username=$.cookie("TT_TOKEN");
+		console.log(username);
 
-		//二级类目(手机)
-			<c:forEach items="${itemCatResult.itemCats[0].items}" var="j">
-       			 console.log("${j}");
-			</c:forEach>
+	   <%--/* //一级类目--%>
+	    <%--<c:forEach items="${itemCatResult.itemCats}" var="i">--%>
+			<%--console.log("${i.name}"+"${i.url}");--%>
+		<%--</c:forEach>--%>
 
-        console.log("-------------");
+		<%--console.log("-------------");--%>
 
-        //三级类目(手机中的苹果)
-        <c:forEach items="${itemCatResult.itemCats[0].items[0]}" var="k">
-        		console.log("${k}");
-        </c:forEach>
+		<%--//二级类目(手机)--%>
+			<%--<c:forEach items="${itemCatResult.itemCats[0].items}" var="j">--%>
+       			 <%--console.log("${j}");--%>
+			<%--</c:forEach>--%>
+
+        <%--console.log("-------------");--%>
+
+        <%--//三级类目(手机中的苹果)--%>
+        <%--<c:forEach items="${itemCatResult.itemCats[0].items[0]}" var="k">--%>
+        		<%--console.log("${k}");--%>
+        <%--</c:forEach>*/--%>
     })
 
 </script>

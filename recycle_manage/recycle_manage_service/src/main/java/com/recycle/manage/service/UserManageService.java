@@ -76,7 +76,8 @@ public class UserManageService extends BaseService<User>{
         }
 
         // 登录成功，将用户的信息保存到Redis中
-        String token = DigestUtils.md5Hex(user.getUsername()+ System.currentTimeMillis());
+        String token = user.getUsername();
+        /*String token = DigestUtils.md5Hex(user.getUsername()+ System.currentTimeMillis());*/
 
         this.redisService.set("TOKEN_" + token, MAPPER.writeValueAsString(user), REDIS_TIME);
 

@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -89,21 +91,29 @@ public class UserManageController {
      * @return
      */
       @RequestMapping(value = "doLogin", method = RequestMethod.POST)
-        public String doLogin(String login_phone,String login_password, HttpServletRequest request, HttpServletResponse response) throws Exception {
-            try {
+        public ModelAndView doLogin(String login_phone, String login_password, HttpServletRequest request, HttpServletResponse response) throws Exception {
+          ModelAndView succeedmv=new ModelAndView("succeed");
+          ModelAndView failmv=new ModelAndView("failed");
+          try {
                 String token = this.userManageService.doLogin(login_phone, login_password);
                 if (StringUtils.isEmpty(token)) {
                     //账号/密码错误
-                    return "loginAndRegister";
+                    failmv.addObject("msg","账号/密码错误!!!请稍后再试");
+                    return failmv;
                 }
-                //登录成功
-                CookieUtils.setCookie(request, response, COOKIE_NAME, token);
-                return "indexFirst";
+                User user=new User();
+                user.setPhone(login_phone);
+                String username= this.userManageService.queryOne(user).getUsername();
+              //登录成功
+                CookieUtils.setCookie(request, response, COOKIE_NAME, username);
+                succeedmv.addObject("msg","登录");
+                return succeedmv;
             } catch (Exception e) {
                 e.printStackTrace();
             }
                 //服务器出错
-                return "failure";
+                failmv.addObject("msg","服务出错！请稍后再试！");
+                return failmv;
         }
 
    /* @RequestMapping(value = "doLogin", method = RequestMethod.POST)
@@ -128,23 +138,29 @@ public class UserManageController {
      * 新增用户
      */
     @RequestMapping( value = "doRegister",method=RequestMethod.POST)
-    public String registerUser( User user){
+    public ModelAndView registerUser( User user){
+        ModelAndView succeedmv=new ModelAndView("succeed");
+        ModelAndView failmv=new ModelAndView("failed");
         try {
             if(StringUtils.isEmpty(user.getUsername())){
                 //参数有误，400
-                return "failure";
+                failmv.addObject("msg","用户名不能为空！！！请稍后再试！");
+                return failmv;
             }
             Boolean bool=this.userManageService.saveUser(user);
             if(!bool){
                 //保存失败
-                return "failure";
+                failmv.addObject("msg","注册出错！！！请稍后再试！");
+                return failmv;
             }
-                return "loginAndRegister";
+            succeedmv.addObject("msg","注册");
+            return succeedmv;
         } catch (Exception e) {
             e.printStackTrace();
         }
         //服务器出错
-       return "failure";
+        failmv.addObject("msg","服务出错！！！请稍后再试！");
+        return failmv;
     }
 
     @RequestMapping( value = "saveuser",method=RequestMethod.POST)

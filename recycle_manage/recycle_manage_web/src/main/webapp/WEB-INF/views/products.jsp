@@ -11,8 +11,8 @@
 <body>
 	<div class="nav clearfix">
 				<div class="w">
-					<img class="logo" src="/img/logo3.png"></img>
-					<span>测试用语</span>
+					<img class="logo" src="/img/Logo4.png"></img>
+					<span>数码在线回收</span>
 					<ul>
 						<li><a href="/rest/front/index">首页</a></li>
 						<li><a href="">商城</a></li>
@@ -45,7 +45,9 @@
 	<div class="content">
 		<form action="#" method="post">
 			<div class="products">
-				<div class="left">图片占位</div>
+				<div class="left">
+					<img src="${image}" alt="产品图片" >
+				</div>
 				<div class="right">
 					<dl class="memory clearfix">
 						<dt class="selkind">
@@ -271,10 +273,10 @@
                        	$(location).attr('href', '/rest/page/evaluate');//跳转到评估结果页面
                     },
                     500:function(){
-                        alert("评估出错!请稍后重试！")
+                        $(location).attr('href', '/rest/page/failed');
                     },
                     400:function(){
-                        alert("提交的参数不合法!");
+                        $(location).attr('href', '/rest/page/failed');
                     }
                 }
             })

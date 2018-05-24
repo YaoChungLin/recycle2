@@ -36,12 +36,14 @@ public class ProductController {
         List<ItemCatDesc> itemCatDescs = this.itemCatDescService.queryListByCatId(itemCatId);
 
         String itemName = this.itemCatService.queryById(itemCatId).getName();
+        String image = this.itemCatService.queryById(itemCatId).getImage();
 
        /* //list转换成数组
         ItemCatDesc[] itemCatDescArray=new ItemCatDesc[itemCatDescs.size()];
         itemCatDescs.toArray(itemCatDescArray);
         mv.addObject("itemCatDescArray",itemCatDescArray);*/
         mv.addObject("itemCatId",itemCatId);
+        mv.addObject("image",image);
         mv.addObject("itemCatDescs",itemCatDescs);
         mv.addObject("itemName",itemName);
 

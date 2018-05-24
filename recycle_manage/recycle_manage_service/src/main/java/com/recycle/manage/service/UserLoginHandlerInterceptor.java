@@ -57,7 +57,6 @@ public class UserLoginHandlerInterceptor implements HandlerInterceptor {
 
         User user = this.queryUserByToken(token);
 
-        /* User user = this.userManageService.queryByToken(token);*/
         if (null == user) {
             // 登录超时，跳转到登录页面
             response.sendRedirect(loginUrl);

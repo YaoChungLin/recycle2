@@ -231,14 +231,14 @@ var PName="";
                 dataType:'json',
                 contentType: 'application/json; charset=utf-8',
                 statusCode:{
-                    200:function(data){
-                        $(location).attr('href', '/rest/front/index');
+                    201:function(data){
+                        $(location).attr('href', '/rest/page/succeed');
                     },
                     500:function(){
-                        alert("下单出错!请稍后重试！")
+                        $(location).attr('href', '/rest/page/failed');
                     },
                     400:function(){
-                        alert("提交的参数不合法!");
+                        $(location).attr('href', '/rest/page/failed');
                     }
                 }
             })

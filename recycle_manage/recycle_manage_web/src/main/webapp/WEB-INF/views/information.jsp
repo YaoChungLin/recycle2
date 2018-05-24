@@ -11,7 +11,7 @@
 <body>
 	<div class="nav">
 				<div class="w clearfix">
-					<img class="logo" src="/img/logo3.png"></img>
+					<img class="logo" src="/img/Logo4.png"></img>
 					<span>测试用语</span>
 					<ul>
 						<li><a href="/rest/front/index">首页</a></li>
