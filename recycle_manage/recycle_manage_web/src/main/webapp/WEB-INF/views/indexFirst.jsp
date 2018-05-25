@@ -15,26 +15,37 @@
 	<div class="nav">
 				<div class="w">
 					<img class="logo" src="/img/Logo4.png"></img>
-					<span>测试用语</span>
+					<span>数码在线回收</span>
 					<ul class="ter">
 						<form action="#" method="post">
 						<li><a class="lia" href="/rest/front/index">首页</a></li>
 						<li><a class="lia" href="">商城</a></li>
 						<li><a class="lia" href="">导航</a>
 							<div class="navbar">
+								<div class="navbar-first">
+									<ul>
+										<a href=""><li class="navlia">手机</li></a>
+										<a href="">										<li class="navlia">平板</li></a>
+										<a href="">										<li class="navlia">电脑</li></a>
+										<a href="">										<li class="navlia">摄影</li></a>
+									</ul>
+								</div>
+								<div class="navbar-second"></div>
+								<div class="navbar-third"></div>
+							</div>
+							<!-- <div class="navbar">
 								<div class="nav-bar">
 									<div class="items">
 									</div>
-									<!-- 二级链接 -->
-								
-							</div>
+							</div> -->
 						</li>
 						<li><a class="lia" href="">关于</a></li>
 						</form>
 					</ul>
 					<div class="login">
-						<a href="/rest/page/loginAndRegister">登陆/注册</a>
-						<a href="">回收车</a>
+						<a href="" class="register cart">登陆/注册</a>
+						<div class="loginName"><label></label><a href="javascript:void(0);">注销</a></div>
+						<a href="" class="cart">回收车</a>
 						<div class="num">0</div>
 					</div>
 					<!-- 搜索 -->
@@ -77,17 +88,18 @@
 		<div class="section second">
 			<div class="warp">
 				<div class="slide">
-					<img class="firpic" src="/img/slidepic1.jpg"></img>
-					<img class="secpic" src="/img/slidepic1.jpg"></img>
-					<img class="thrpic" src="/img/slidepic1.jpg"></img>
-					<img class="forpic" src="/img/slidepic1.jpg"></img>
+					<img class="firpic" src="/img/1.png"></img>
+					<img class="secpic" src="/img/2.png"></img>
+					<img class="thrpic" src="/img/3.png"></img>
+					<img class="forpic" src="/img/4.png"></img>
 				</div>
 				<div class="text">
-					<img src="/img/slidepic2.jpg" alt="占位">
-					<img src="/img/slidepic2.jpg" alt="占位">
-					<img src="/img/slidepic2.jpg" alt="占位">
-					<img src="/img/slidepic2.jpg" alt="占位">
-					<img src="/img/slidepic2.jpg" alt="占位">
+					<img src="/img/安.png" alt="安"></img>
+					<img src="/img/全.png" alt="全"></img>
+					<img src="/img/高.png" alt="高"></img>
+					<img src="/img/效.png" alt="效"></img>
+					<img src="/img/信.png" alt="信"></img>
+					<img src="/img/赖.png" alt="赖"></img>
 				</div>
 				<a href="">马上体验>>></a>
 				<div class="seclapse">
@@ -132,9 +144,9 @@
 			</div> -->
 			<div class="fourpage">
 				<div class="title"></div>
-				<img src="/img/slidepic2.jpg">
-				<img src="/img/slidepic2.jpg">
-				<img src="/img/slidepic2.jpg">
+				<img src="/img/快递.png">
+				<img src="/img/短信.png">
+				<img src="/img/打款.png">
 				<div class="backtop">
 					<<!-- ul id="menu">
 						<li data-menuanchor="page1"><a href="#page1"></a></li>
@@ -163,11 +175,82 @@
 <script type="text/javascript" src="/js/index.js"></script>
 <script type="text/javascript" src="/js/jquery.cookie.js"></script>
 <script>
+
 	$(function () {
-
 		var username=$.cookie("TT_TOKEN");
-		console.log(username);
+		checkName(username);
 
+		$('.loginName label').click(function(){
+			//跳转到个人页面
+		})
+		$('.loginName a').click(function(){
+			/*注销cookie*/
+		// username=$.cookie("TT_TOKEN",null);
+		// checkName(username);
+		})
+		$('.navbar').parent().mouseover(function(){
+			$('.navbar').css('display','block');
+		})
+		$('.navbar').parent().mouseout(function(){
+			$('.nav-second').css('display','none');
+			$('.nav-third').css('display','none');
+			$('.navbar').css('display','none');
+		})
+		$('.navbar').mouseout(function(){
+			$('.nav-second').css('display','none');
+			$('.nav-third').css('display','none');
+			$('.navbar').css('display','none');
+		})
+		function navshow(){
+			for(var i=0;i<4;i++){
+				$('.navbar-first li')[i].onmouseover = function(){
+					//$('.navbar-second').css('display','block');
+					$('.navbar-second').slideDown();
+					var thisTest = $(this).text();
+					$('.navbar-second').children().remove();
+					console.log(thisTest);
+					var htmlStr = "";
+					var bianlian = "小米"; //变量示例
+					/*从这里循环变量放入*/
+					var length = 5;//变量长度
+					for(var i=0;i<length;i++){ //变量长度length
+						htmlStr +='<a href="">'+bianlian+'</a>';
+					}
+					$('.navbar-second').append(htmlStr);
+					/*结束*/
+					navtshow(length);//参数是循环的变量i
+				}
+			}
+		}
+		function navtshow(length){
+			for(var i=0;i<length;i++){
+				$('.navbar-second a')[i].onmouseover = function(){
+					$('.navbar-third').slideDown();
+					var thisTest = $(this).text();
+					$('.navbar-third').children().remove();
+					console.log(thisTest);
+					var htmlStr = "";
+					var bianlian = "小米4c"; //变量示例
+					/*从这里循环变量放入*/
+					for(var i=0;i<5;i++){
+						htmlStr +='<a href="">'+bianlian+'</a>';
+					}
+					$('.navbar-third').append(htmlStr);
+					/*结束*/
+				}
+			}
+		}
+		function checkName(name){
+			if(name =="" ||name ==undefined){
+			
+			$('.loginName').css('display','none');
+			$('.register').css('display','block');
+		}else{
+			$('.loginName').css('display','block').children('label').text(name);
+			$('.register').css('display','none');
+		}
+		}
+		navshow();
 	   <%--/* //一级类目--%>
 	    <%--<c:forEach items="${itemCatResult.itemCats}" var="i">--%>
 			<%--console.log("${i.name}"+"${i.url}");--%>

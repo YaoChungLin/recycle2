@@ -46,7 +46,7 @@ li{
 		float:left;
 		font-family:"微软雅黑";
 		line-height:72px;
-		color:#000;
+		color:#fff;
 	}
 	.nav .w .ter{
 		margin-left:200px;
@@ -69,7 +69,7 @@ li{
 		color:#fff;
 	}
 	.nav li a.lia:hover{
-	   background:#ccc;
+	   background:#666;
 	}
 
 	.nav .login{
@@ -78,7 +78,7 @@ li{
 		height:72px;
 		margin-left:100px;
 	}
-	.nav .login a{
+	.nav .login a.cart{
 		display:block;
 		text-decoration:none;
 		font:16px/72px "微软雅黑";
@@ -89,6 +89,27 @@ li{
 		/*border-right:1px solid #ccc;*/
 		float:left;
 		margin-left:13px;
+	}
+	.nav .login .loginName{
+		display:none;
+		text-decoration:none;
+		font:16px/72px "微软雅黑";
+		text-align: center;
+		color:#fff;
+		width:200px;
+		height:72px;
+		float:left;
+		margin-left:13px;
+	}
+	.nav .login .loginName label{
+		cursor:pointer;
+	}
+	.nav .login .loginName a{
+		color:#fff;
+		margin-left:10px;
+	}
+	.nav .login .loginName a:hover{
+		color:#ccc;
 	}
 	.nav .login a:hover{
 		background:#666;
@@ -132,6 +153,64 @@ li{
 	}
 	.nav .navbar{
 		position:relative;
+		left:-268px;
+		width:700px;
+		font:16px "微软雅黑";
+		color:#111;
+		display:none;
+	}
+	.nav .navbar .navbar-first{
+		height:50px;
+		width:100%;
+		background:#111;
+		/* display:none; */
+	}
+	.nav .navbar .navbar-first li{
+		float:left;
+		height:50px;
+		width:25%;
+		color:#fff;
+		line-height:50px;
+		text-align:center;
+	}
+	.nav .navbar .navbar-first li:hover{
+		color:#56ab85;
+	}
+	.nav .navbar .navbar-second{
+		height:50px;
+		width:100%;
+		background:#222;
+		color:#eee;
+		display:none;
+	}
+	.nav .navbar .navbar-second a{
+		display:block;
+		height:50px;
+		line-height:50px;
+		text-align:center;
+		float:left;
+		margin-left:13px;
+		color:#eee;
+	}
+	.nav .navbar .navbar-third{
+		height:50px;
+		width:100%;
+		background:#333;
+		color:#eee;
+		display:none;
+	}
+	.nav .navbar .navbar-third a{
+		display:block;
+		height:50px;
+		line-height:50px;
+		text-align:center;
+		float:left;
+		margin-left:13px;
+		color:#eee;
+	}
+	/*第一版注释*/
+	/* .nav .navbar{
+		position:relative;
 		left:-320px;
 	}
 	.nav .nav-bar{
@@ -151,21 +230,18 @@ li{
 	.nav .nav-bar .nav-bar-bottom{
 		display:none;
 	}
-	.nav .nav-bar .nav-bar-bottom-bottom{
-		display:none;
-	}
 	.nav .w ul li:hover > .navbar > .nav-bar{
 		display:block;
 		width:1150px;
 		height:40px;
-		/*background:#fff;*/
+		background:#fff;
 		left:0px;
 		top:0px;
 	}
 	.nav .w ul .nav-bar a.items:hover{
 		color:#ccc;
 	}
-	.nav .w ul .nav-bar a.items:hover > .nav-bar-bottom{
+	.nav .w ul .nav-bar a:hover > .nav-bar-bottom{
 		position:absolute;
 		display:block;
 		width:1150px;
@@ -174,17 +250,7 @@ li{
 		color:#fff;
 		left:0px;
 		top:28px;
-	}
-	.nav .w ul .nav-bar-bottom a.item:hover > .nav-bar-bottom-bottom{
-	position:absolute;
-	display:block;
-	width:1150px;
-	height:80px;
-	background:red;
-	color:#fff;
-	left:0px;
-	top:28px;
-	}
+	} */
 /*nav end*/
 
 /*first Page star*/
@@ -287,7 +353,7 @@ li{
 		width:100%;
 		height:250px;
 		position:relative;
-		background:green;
+		background:#B0C4DE;
 	}
 	.second .slide img{
 		width:2px;
@@ -401,20 +467,20 @@ li{
 		margin:0 auto;
 		padding-top:72px;
 		position:relative;
-		background:blue;
+		/*background:blue;*/
 	}
 	.third .thrpage .thrleft{
 		width:300px;
 		height:500px;
 		float:left;
-		background:#666;
+		/*background:#666;*/
 	}
 	.third .thrpage .thrrigth{
 		width:830px;
 		height:500px;
 		float:left;
 		position:relative;
-		background:#333;
+		/*background:#333;*/
 		margin-left:20px;
 	}
 	.third .thrpage .thrrigth div{
@@ -500,26 +566,26 @@ li{
 		margin:0 auto;
 		padding-top:72px;
 		position:relative;
-		background:blue;
+		/*background:blue;*/
 		height:500px;
 	}
 	.fourth .fourpage .title{
 		width:500px;
 		height:50px;
 		margin:10px auto;
-		background:#555;
+		/*background:#555;*/
 	}
 	.fourth .fourpage img{
-		width:100px;
-		height:100px;
+		width:150px;
+		height:150px;
 		border-radius: 50px;
 		margin-top:100px;
-		margin-left:18%;
+		margin-left:15%;
 	}
 	.fourth .backtop{
 		width:100px;
 		height:50px;
-		background:#ccc;
+		/*background:#ccc;*/
 		margin:100px auto;
 	}
 	.fourth.current .fourpage img:nth-child(2){
@@ -539,7 +605,7 @@ li{
 		0%{
 		}
 		50%{
-			transform:scale(2);
+			transform:scale(1.5);
 		}
 		100%{
 			transform:scale(1);

@@ -46,7 +46,7 @@ $('.tab a').on('click', function (e) {
 $(function(){
     $('.fullPage').fullpage({
             // 设置背景色
-            sectionsColor : ['#0da5d6', '#2AB561', '#DE8910', '#16BA9D', '#0DA5D6'],
+            sectionsColor : ['#000', '#B0C4DE', '#DE8910', '#8794a9', '#0DA5D6'],
             anchors: ['page1', 'page2', 'page3', 'page4'],
             menu:'#backtop',
             afterLoad: function (anchorLink, index) {

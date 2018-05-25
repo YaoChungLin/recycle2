@@ -18,15 +18,20 @@ input[type="text"]{
 	text-decoration:none;
 	width:162px;
 }
+li{
+	list-style: none;
+}
+
+
 /*nav star*/
 	.nav{
 		width:100%;
 		height:72px;
-		position:fixed;
+		position:absolute;
 		top:0;
 		left:0;
 		z-index: 9999;
-		background:#333;
+		background:#000;
 		/*border:1px solid #ccc;*/
 	}
 	.nav .w{
@@ -42,30 +47,30 @@ input[type="text"]{
 		float:left;
 		font-family:"微软雅黑";
 		line-height:72px;
-		color:#000;
+		color:#fff;
 	}
-	.nav .w ul{
+	.nav .w .ter{
 		margin-left:200px;
 		font-family:"微软雅黑";
 		line-height:72px;
 		color:#000;
 	}
-	.nav li{
+	.nav .ter li{
 		display: block;
 		width:70px;
 		height:72px;
 		text-align:center;
 		float:left;
 	}
-	.nav li a{
+	.nav .ter li a.lia{
 		display: block;
 		width:70px;
 		height:72px;
 		text-decoration: none;
 		color:#fff;
 	}
-	.nav li a:hover{
-	   background:#ccc;
+	.nav li a.lia:hover{
+	   background:#666;
 	}
 
 	.nav .login{
@@ -74,7 +79,7 @@ input[type="text"]{
 		height:72px;
 		margin-left:100px;
 	}
-	.nav .login a{
+	.nav .login a.cart{
 		display:block;
 		text-decoration:none;
 		font:16px/72px "微软雅黑";
@@ -85,6 +90,27 @@ input[type="text"]{
 		/*border-right:1px solid #ccc;*/
 		float:left;
 		margin-left:13px;
+	}
+	.nav .login .loginName{
+		display:none;
+		text-decoration:none;
+		font:16px/72px "微软雅黑";
+		text-align: center;
+		color:#fff;
+		width:200px;
+		height:72px;
+		float:left;
+		margin-left:13px;
+	}
+	.nav .login .loginName label{
+		cursor:pointer;
+	}
+	.nav .login .loginName a{
+		color:#fff;
+		margin-left:10px;
+	}
+	.nav .login .loginName a:hover{
+		color:#ccc;
 	}
 	.nav .login a:hover{
 		background:#666;
@@ -128,30 +154,58 @@ input[type="text"]{
 	}
 	.nav .navbar{
 		position:relative;
-		left:-320px;
-	}
-	.nav .nav-bar{
-		
+		left:-268px;
+		width:700px;
+		font:16px "微软雅黑";
+		color:#111;
 		display:none;
 	}
-	.nav .nav-bar .nav-bar-bottom{
+	.nav .navbar .navbar-first{
+		height:50px;
+		width:100%;
+		background:#111;
+		/* display:none; */
+	}
+	.nav .navbar .navbar-first li{
+		float:left;
+		height:50px;
+		width:25%;
+		color:#fff;
+		line-height:50px;
+		text-align:center;
+	}
+	.nav .navbar .navbar-first li:hover{
+		color:#56ab85;
+	}
+	.nav .navbar .navbar-second{
+		height:50px;
+		width:100%;
+		background:#222;
+		color:#eee;
 		display:none;
 	}
-	.nav .w ul li:hover > .navbar > .nav-bar{
+	.nav .navbar .navbar-second a{
 		display:block;
-		width:1150px;
-		height:40px;
-		background:#ccc;
-		left:0px;
-		top:0px;
+		height:50px;
+		line-height:50px;
+		text-align:center;
+		float:left;
+		margin-left:13px;
+		color:#eee;
 	}
-	.nav .w ul .nav-bar li:hover > .nav-bar-bottom{
-		position:absolute;
+	.nav .navbar .navbar-third{
+		height:50px;
+		width:100%;
+		background:#333;
+		color:#eee;
+		display:none;
+	}
+	.nav .navbar .navbar-third a{
 		display:block;
-		width:1150px;
-		height:40px;
-		background:green;
-		left:0px;
-		top:40px;
+		height:50px;
+		line-height:50px;
+		text-align:center;
+		float:left;
+		margin-left:13px;
+		color:#eee;
 	}
-/*nav end*/
