@@ -25,7 +25,7 @@ public class ApiItemCatController {
     @RequestMapping(method=RequestMethod.GET)
     public ResponseEntity<ItemCatResult> queryItemCat(){
         try {
-            System.out.print("ffff");
+            System.out.print("aaa");
             ItemCatResult itemCatResult=this.apiItemCatController.queryAllToTree();
             return ResponseEntity.ok(itemCatResult);
         } catch (Exception e) {
