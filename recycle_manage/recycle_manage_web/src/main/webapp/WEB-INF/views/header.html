@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="./css/header.css">
+</head>
+<body>
+	<div class="nav">
+				<div class="w">
+					<img class="logo" src="img/logo3.png"></img>
+					<span>数码回收</span>
+					<ul class="ter">
+						<form action="#" method="post">
+						<li><a class="lia" href="">首页</a></li>
+						<li><a class="lia" href="">商城</a></li>
+						<li><a class="lia" href="">导航</a>
+							<div class="navbar">
+								<div class="navbar-first">
+									<ul>
+										<a href=""><li class="navlia">手机</li></a>
+										<a href="">										<li class="navlia">平板</li></a>
+										<a href="">										<li class="navlia">电脑</li></a>
+										<a href="">										<li class="navlia">摄影</li></a>
+									</ul>
+								</div>
+								<div class="navbar-second"></div>
+								<div class="navbar-third"></div>
+							</div>
+							<!-- <div class="navbar">
+								<div class="nav-bar">
+									<div class="items">
+									</div>
+									二级链接
+								
+							</div> -->
+						</li>
+						<li><a class="lia" href="">关于</a></li>
+						</form>
+					</ul>
+					<div class="login">
+						<a href="" class="register cart">登陆/注册</a>
+						<div class="loginName"><label></label><a href="javascript:void(0);">注销</a></div>
+						<a href="" class="cart">回收车</a>
+						<div class="num">0</div>
+					</div>
+					<!-- 搜索 -->
+						<div class="search">
+							<input type="text" name="search" id="search" placeholder="回收各种手机">
+							<div class="searchimg">111</div>
+						</div>
+					<!--搜索结束-->
+					</div>
+				</div>
+	</div>
+	<!-- nav end -->
+</body>
+<script src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/jquery.cookie.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var username=$.cookie("TT_TOKEN");
+		console.log(username);
+		checkName(username);
+		navshow();
+		$('.loginName label').click(function(){
+			//跳转到个人页面
+		})
+		$('.loginName a').click(function(){
+			/*注销cookie*/
+		/*username=$.cookie("TT_TOKEN",null);
+		checkName(username);*/
+		})
+		$('.navbar').parent().mouseover(function(){
+			$('.navbar').css('display','block');
+		})
+		$('.navbar').parent().mouseout(function(){
+			$('.nav-second').css('display','none');
+			$('.nav-third').css('display','none');
+			$('.navbar').css('display','none');
+		})
+		$('.navbar').mouseout(function(){
+			$('.nav-second').css('display','none');
+			$('.nav-third').css('display','none');
+			$('.navbar').css('display','none');
+		})
+		function navshow(){
+			for(var i=0;i<4;i++){
+				$('.navbar-first li')[i].onmouseover = function(){
+					//$('.navbar-second').css('display','block');
+					$('.navbar-second').slideDown();
+					var thisTest = $(this).text();
+					$('.navbar-second').children().remove();
+					console.log(thisTest);
+					var htmlStr = "";
+					var bianlian = "小米"; //变量示例
+					/*从这里循环变量放入*/
+					var length = 5;//变量长度
+					for(var i=0;i<length;i++){ //变量长度length
+						htmlStr +='<a href="">'+bianlian+'</a>';
+					}
+					$('.navbar-second').append(htmlStr);
+					/*结束*/
+					navtshow(length);//参数是循环的变量i
+				}
+			}
+		}
+		function navtshow(length){
+			for(var i=0;i<length;i++){
+				$('.navbar-second a')[i].onmouseover = function(){
+					$('.navbar-third').slideDown();
+					var thisTest = $(this).text();
+					$('.navbar-third').children().remove();
+					console.log(thisTest);
+					var htmlStr = "";
+					var bianlian = "小米4c"; //变量示例
+					/*从这里循环变量放入*/
+					for(var i=0;i<5;i++){
+						htmlStr +='<a href="">'+bianlian+'</a>';
+					}
+					$('.navbar-third').append(htmlStr);
+					/*结束*/
+				}
+			}
+		}
+		function checkName(name){
+			if(name =="" ||name ==undefined){
+			
+			$('.loginName').css('display','none');
+			$('.register').css('display','block');
+		}else{
+			$('.loginName').css('display','block').children('label').text(name);
+			$('.register').css('display','none');
+		}
+		}
+	})
+</script>
+</html>
