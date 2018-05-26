@@ -25,9 +25,9 @@
 								<div class="navbar-first">
 									<ul>
 										<a href=""><li class="navlia">手机</li></a>
-										<a href="">										<li class="navlia">平板</li></a>
-										<a href="">										<li class="navlia">电脑</li></a>
-										<a href="">										<li class="navlia">摄影</li></a>
+										<a href=""><li class="navlia">平板电脑</li></a>
+										<a href=""><li class="navlia">笔记本</li></a>
+										<a href=""><li class="navlia">摄影摄像</li></a>
 									</ul>
 								</div>
 								<div class="navbar-second"></div>
@@ -43,7 +43,7 @@
 						</form>
 					</ul>
 					<div class="login">
-						<a href="" class="register cart">登陆/注册</a>
+						<a href="/rest/page/loginAndRegister" class="register cart">登陆/注册</a>
 						<div class="loginName"><label></label><a href="javascript:void(0);">注销</a></div>
 						<a href="" class="cart">回收车</a>
 						<div class="num">0</div>
@@ -144,9 +144,9 @@
 			</div> -->
 			<div class="fourpage">
 				<div class="title"></div>
-				<img src="/img/快递.png">
-				<img src="/img/短信.png">
-				<img src="/img/打款.png">
+				<img src="/img/kuaidi.png">
+				<img src="/img/duanxin.png">
+				<img src="/img/dakuan.png">
 				<div class="backtop">
 					<<!-- ul id="menu">
 						<li data-menuanchor="page1"><a href="#page1"></a></li>
@@ -175,6 +175,9 @@
 <script type="text/javascript" src="/js/index.js"></script>
 <script type="text/javascript" src="/js/jquery.cookie.js"></script>
 <script>
+
+    var datajson=${itemCatResultString};
+    console.log(datajson);
 
 	$(function () {
 		var username=$.cookie("TT_TOKEN");
@@ -210,15 +213,38 @@
 					$('.navbar-second').children().remove();
 					console.log(thisTest);
 					var htmlStr = "";
-					var bianlian = "小米"; //变量示例
+					//var bianlian = "小米"; //变量示例
 					/*从这里循环变量放入*/
-					var length = 5;//变量长度
-					for(var i=0;i<length;i++){ //变量长度length
-						htmlStr +='<a href="">'+bianlian+'</a>';
-					}
+					<%--if(thisTest=="手机"){--%>
+                        <%--<c:forEach items="${itemCatResult.itemCats[0].items}" var="j">--%>
+							<%--console.log("${fn:length(j)}");--%>
+							<%--htmlStr +='<a href="">'+"${j.n}"+'</a>';--%>
+                        <%--</c:forEach>--%>
+					<%--}else if(thisTest=="平板电脑"){--%>
+                        <%--<c:forEach items="${itemCatResult.itemCats[1].items}" var="j">--%>
+                        	<%--console.log("${j}");--%>
+							<%--htmlStr +='<a href="">'+"${j.n}"+'</a>';--%>
+                        <%--</c:forEach>--%>
+					<%--}else if(thisTest=="笔记本"){--%>
+                        <%--<c:forEach items="${itemCatResult.itemCats[2].items}" var="j">--%>
+                        	<%--htmlStr +='<a href="">'+"${j.n}"+'</a>';--%>
+                        <%--</c:forEach>--%>
+					<%--}else if(thisTest=="摄影摄像"){--%>
+                        <%--<c:forEach items="${itemCatResult.itemCats[3].items}" var="j">--%>
+                        	<%--htmlStr +='<a href="">'+"${j.n}"+'</a>';--%>
+                        <%--</c:forEach>--%>
+					<%--}--%>
+
+
+
+					 var length = 5;//变量长度
+					// for(var i=0;i<length;i++){ //变量长度length
+					// 	htmlStr +='<a href="">'+bianlian+'</a>';
+					// }
 					$('.navbar-second').append(htmlStr);
 					/*结束*/
 					navtshow(length);//参数是循环的变量i
+
 				}
 			}
 		}
@@ -251,6 +277,7 @@
 		}
 		}
 		navshow();
+
 	   <%--/* //一级类目--%>
 	    <%--<c:forEach items="${itemCatResult.itemCats}" var="i">--%>
 			<%--console.log("${i.name}"+"${i.url}");--%>

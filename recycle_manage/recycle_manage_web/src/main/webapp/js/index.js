@@ -55,7 +55,6 @@ $(function(){
                 // setTimeout(function () {
                 //     $('.test').eq(index - 1).addClass('.animate');
                 // }, 100);
-                console.log(index);
                 $('.second').removeClass('current');
                 $('.third').removeClass('current');
                 $('.fourth').removeClass('current');
