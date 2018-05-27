@@ -79,12 +79,20 @@ public class UserManageService extends BaseService<User>{
         String token = user.getUsername();
         /*String token = DigestUtils.md5Hex(user.getUsername()+ System.currentTimeMillis());*/
 
-        this.redisService.set("TOKEN_" + token, MAPPER.writeValueAsString(user), REDIS_TIME);
+        this.redisService.set("TOKEN_"+token , MAPPER.writeValueAsString(user), REDIS_TIME);
 
         return token;
     }
 
 
+    /**
+     * 登出
+     * @return
+     * @throws Exception
+     */
+    public void logout(String token) {
+        this.redisService.del("TOKEN_"+token);
+    }
 
     /**
      *

@@ -178,10 +178,11 @@
 
     var datajson=${itemCatResultString};
     var data = datajson.data;
-    console.log(data);
+
 
 	$(function () {
 		var username=$.cookie("TT_TOKEN");
+		console.log(username);
 		checkName(username);
 
 		$('.loginName label').click(function(){
@@ -191,9 +192,22 @@
 			/*注销cookie*/
 			$.cookie("TT_TOKEN", "", {expires: -1});
 		    checkName();
-		    $.ajax({
-				url:""
-			})
+
+            $.ajax({
+                url:'/rest/user/logout',
+                type:'POST',
+                data:JSON.stringify({username:username}),
+                dataType:'json',
+                contentType: 'application/json; charset=utf-8',
+                statusCode:{
+                    201:function(data){
+                        window.location.reload();
+                    },
+                    500:function(){
+                        $(location).attr('href', '/rest/page/failed');
+                    }
+                }
+            })
 		})
 		$('.navbar').parent().mouseover(function(){
 			$('.navbar').css('display','block');

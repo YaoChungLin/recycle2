@@ -116,6 +116,26 @@ public class UserManageController {
                 return failmv;
         }
 
+    /**
+     * 登出
+     *
+     * @param
+     * @return
+     */
+    @RequestMapping(value = "logout", method = RequestMethod.POST)
+    public ResponseEntity<Void> doLogin( HttpServletRequest request, HttpServletResponse response,@RequestBody User user) throws Exception {
+        try {
+            System.out.print(user.getUsername());
+            this.userManageService.logout(user.getUsername());
+            CookieUtils.deleteCookie(request,response,COOKIE_NAME);
+            return ResponseEntity.status(HttpStatus.CREATED).build();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+
    /* @RequestMapping(value = "doLogin", method = RequestMethod.POST)
     public ResponseEntity<Void> doLogin(@RequestBody User user, HttpServletRequest request, HttpServletResponse response) {
         try {
