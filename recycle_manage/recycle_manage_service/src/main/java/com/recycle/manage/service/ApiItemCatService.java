@@ -60,7 +60,7 @@ public class ApiItemCatService extends BaseService<ItemCat>{
         List<ItemCat> itemCatList1 = itemCatMap.get(0L);
         for (ItemCat itemCat : itemCatList1) {
             ItemCatData itemCatData = new ItemCatData();
-            itemCatData.setUrl("/products/" + itemCat.getId() + ".html");
+            itemCatData.setUrl("/rest/products/" + itemCat.getId() + ".html");
         /*    itemCatData.setName("<a href='" + itemCatData.getUrl() + "'>" + itemCat.getName() + "</a>");*/
             itemCatData.setName( itemCat.getName());
             result.getItemCats().add(itemCatData);
@@ -75,7 +75,7 @@ public class ApiItemCatService extends BaseService<ItemCat>{
             for (ItemCat itemCat2 : itemCatList2) {
                 ItemCatData id2 = new ItemCatData();
                 id2.setName(itemCat2.getName());
-                id2.setUrl("/products/" + itemCat2.getId() + ".html");
+                id2.setUrl("/rest/products/" + itemCat2.getId() + ".html");
                 itemCatData2.add(id2);
                 if (itemCat2.getIsParent()) {
                     // 封装三级对象
@@ -83,7 +83,7 @@ public class ApiItemCatService extends BaseService<ItemCat>{
                     List<String> itemCatData3 = new ArrayList<String>();
                     id2.setItems(itemCatData3);
                     for (ItemCat itemCat3 : itemCatList3) {
-                        itemCatData3.add("/products/" + itemCat3.getId() + ".html|" + itemCat3.getName());
+                        itemCatData3.add("/rest/products/" + itemCat3.getId() + ".html|" + itemCat3.getName());
                     }
                 }
             }

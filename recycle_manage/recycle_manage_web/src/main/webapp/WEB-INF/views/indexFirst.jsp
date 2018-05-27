@@ -44,7 +44,7 @@
 					</ul>
 					<div class="login">
 						<a href="/rest/page/loginAndRegister" class="register cart">登陆/注册</a>
-						<div class="loginName"><label></label><a href="javascript:void(0);">注销</a></div>
+						<div class="loginName"><label></label><a class="logout" href="javascript:void(0);">注销</a></div>
 						<a href="" class="cart">回收车</a>
 						<div class="num">0</div>
 					</div>
@@ -177,7 +177,8 @@
 <script>
 
     var datajson=${itemCatResultString};
-    console.log(datajson);
+    var data = datajson.data;
+    console.log(data);
 
 	$(function () {
 		var username=$.cookie("TT_TOKEN");
@@ -188,8 +189,11 @@
 		})
 		$('.loginName a').click(function(){
 			/*注销cookie*/
-		// username=$.cookie("TT_TOKEN",null);
-		// checkName(username);
+			$.cookie("TT_TOKEN", "", {expires: -1});
+		    checkName();
+		    $.ajax({
+				url:""
+			})
 		})
 		$('.navbar').parent().mouseover(function(){
 			$('.navbar').css('display','block');
@@ -204,15 +208,28 @@
 			$('.nav-third').css('display','none');
 			$('.navbar').css('display','none');
 		})
-		function navshow(){
+		function navshow(data){
 			for(var i=0;i<4;i++){
 				$('.navbar-first li')[i].onmouseover = function(){
 					//$('.navbar-second').css('display','block');
+                    var index = $(this).index('.navbar-first li');
 					$('.navbar-second').slideDown();
 					var thisTest = $(this).text();
+					console.log(index);
+					var thisData="";
+					var thisLength="";
 					$('.navbar-second').children().remove();
 					console.log(thisTest);
 					var htmlStr = "";
+					if(thisTest ==data[index].n){
+					    thisData = data[index].i;
+					}
+					for(k in thisData){
+                        htmlStr +='<a href="'+thisData[k].u+'">'+thisData[k].n+'</a>';
+                        thisLength++;
+					}
+					console.log(htmlStr);
+					console.log(thisLength);
 					//var bianlian = "小米"; //变量示例
 					/*从这里循环变量放入*/
 					<%--if(thisTest=="手机"){--%>
@@ -243,31 +260,42 @@
 					// }
 					$('.navbar-second').append(htmlStr);
 					/*结束*/
-					navtshow(length);//参数是循环的变量i
+					console.log(thisData);
+					navtshow(thisData,thisLength);//参数是循环的变量i
 
 				}
 			}
 		}
-		function navtshow(length){
+		function navtshow(data,length){
 			for(var i=0;i<length;i++){
 				$('.navbar-second a')[i].onmouseover = function(){
 					$('.navbar-third').slideDown();
 					var thisTest = $(this).text();
+					var index = $(this).index('.navbar-second a');
+					var thisData ="";
 					$('.navbar-third').children().remove();
 					console.log(thisTest);
+					console.log(data);
 					var htmlStr = "";
-					var bianlian = "小米4c"; //变量示例
-					/*从这里循环变量放入*/
-					for(var i=0;i<5;i++){
-						htmlStr +='<a href="">'+bianlian+'</a>';
+					console.log(index);
+					if(thisTest ==data[index].n){
+					    thisData = data[index].i;
 					}
+					console.log(thisData);
+					var dataStr= "";
+                    for(k in thisData){
+                        dataStr = thisData[k];
+                        var thisArr=dataStr.split('|');
+                        console.log(thisArr);
+                            htmlStr +='<a href="'+thisArr[0]+'">'+thisArr[1]+'</a>';
+                    }
+
 					$('.navbar-third').append(htmlStr);
-					/*结束*/
 				}
 			}
 		}
 		function checkName(name){
-			if(name =="" ||name ==undefined){
+			if(name =="" ||name ==undefined||name==null){
 			
 			$('.loginName').css('display','none');
 			$('.register').css('display','block');
@@ -276,7 +304,7 @@
 			$('.register').css('display','none');
 		}
 		}
-		navshow();
+		navshow(data);
 
 	   <%--/* //一级类目--%>
 	    <%--<c:forEach items="${itemCatResult.itemCats}" var="i">--%>
