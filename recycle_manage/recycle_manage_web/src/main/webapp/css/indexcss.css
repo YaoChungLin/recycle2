@@ -144,17 +144,20 @@ li{
 	.nav .searchimg{
 		float:left;
 		position:absolute;
-		left:148px;
+		left:152px;
 		right:0px;
 		height:32px;
 		width:30px;
 		cursor:pointer;
-		background:#111;
+		text-align:center;
+		line-height:32px;
+		color:#fff;
 	}
 	.nav .navbar{
 		position:relative;
 		left:-268px;
 		width:700px;
+		height:150px;
 		font:16px "微软雅黑";
 		color:#111;
 		display:none;
@@ -475,6 +478,10 @@ li{
 		float:left;
 		/*background:#666;*/
 	}
+	.third .thrpage .thileft leftImg{
+		width:300px;
+		height:300px;
+	}
 	.third .thrpage .thrrigth{
 		width:830px;
 		height:500px;
@@ -496,9 +503,14 @@ li{
 		bottom: -100px;
 		width: 180px;
 		height: 80px;
-		background: red;
+		background: #fff;
 		opacity:1;
 		transition: all 0.5s;
+		text-align:center;
+		font:16px/80px "微软雅黑";
+	}
+	.third .thrpage .thrrigth .desc a{
+		color:#FF3737;
 	}
 	.third .thrpage .thrrigth div:hover{
 		box-shadow: 0 0 15px #AAA;

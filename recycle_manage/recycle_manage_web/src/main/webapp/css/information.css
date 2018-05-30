@@ -3,7 +3,7 @@
 		padding:0px;
 	}
 	body{
-		background:#ccc;
+		background:#eee;
 	}
 	a{
 		text-decoration:none;
@@ -39,139 +39,6 @@
     height: 0;
     visibility:hidden;
 	}
-/*nav star*/
-	.nav{
-		width:100%;
-		height:72px;
-		z-index: 9999;
-		background:#333;
-	}
-	.nav .w{
-		width:1150px;
-		margin:0 auto;
-	}
-	.nav .w .logo{
-		width:72px;
-		height:72px;
-		float:left;
-	}
-	.nav .w span{
-		float:left;
-		font-family:"微软雅黑";
-		line-height:72px;
-		color:#000;
-	}
-	.nav .w ul{
-		margin-left:200px;
-		font-family:"微软雅黑";
-		line-height:72px;
-		color:#000;
-	}
-	.nav li{
-		display: block;
-		width:70px;
-		height:72px;
-		text-align:center;
-		float:left;
-	}
-	.nav li a{
-		display: block;
-		width:70px;
-		height:72px;
-		text-decoration: none;
-		color:#fff;
-	}
-	.nav li a:hover{
-	   background:#ccc;
-	}
-
-	.nav .login{
-		float:left;
-		position:relative;
-		height:72px;
-		margin-left:100px;
-	}
-	.nav .login a{
-		display:block;
-		text-decoration:none;
-		font:16px/72px "微软雅黑";
-		text-align: center;
-		color:#fff;
-		width:80px;
-		height:72px;
-		/*border-right:1px solid #ccc;*/
-		float:left;
-		margin-left:13px;
-	}
-	.nav .login a:hover{
-		background:#666;
-		color:#111;
-	}
-	.nav .login .num{
-		width:16px;
-		height:16px;
-		position:absolute;
-		left:169px;
-		top:13px;
-		border-radius: 7em 7em 7em 0em;
-		background:red; 
-		color:#fff;
-		text-align:center;
-		line-height: 16px;
-	}
-	.nav .search{
-		float:left;
-		position:relative;
-		margin-left:24px;
-		margin-top:19px;
-		width:178px;
-		height:32px;
-	}
-	.nav #search{
-		position:absolute;
-		display:none;
-		right:25px;
-		width:0;
-	}
-	.nav .searchimg{
-		float:left;
-		position:absolute;
-		left:148px;
-		right:0px;
-		height:32px;
-		width:30px;
-		cursor:pointer;
-		background:#111;
-	}
-	.nav .navbar{
-		position:relative;
-		left:-320px;
-	}
-	.nav .nav-bar{
-		
-		display:none;
-	}
-	.nav .nav-bar .nav-bar-bottom{
-		display:none;
-	}
-	.nav .w ul li:hover > .navbar > .nav-bar{
-		display:block;
-		width:1150px;
-		height:40px;
-		background:#ccc;
-		left:0px;
-		top:0px;
-	}
-	.nav .w ul .nav-bar li:hover > .nav-bar-bottom{
-		position:absolute;
-		display:block;
-		width:1150px;
-		height:40px;
-		background:green;
-		left:0px;
-		top:40px;
-	}
-/*nav end*/
 /**/
 	.hide{
 		display:none;
@@ -180,7 +47,7 @@
 		background:#fff;
 		font-family: "微软雅黑";
 		width:800px;
-		margin:0px 142px;
+		margin:72px auto;
 		padding:10px;
 	}
 	.ifm-content{
@@ -209,7 +76,8 @@
 		background:#eee;
 	}
 	.sendAdress{
-		background:#eee;
+		background:#f3f3f3;
+		border:1px solid #eee;
 		padding:8px;
 		width:600px;
 		height:260px;
@@ -317,14 +185,14 @@
 	.btn-submit{
 		width:110px;
 		height:50px;
-		background:yellow;
+		background:#FCDB00;
 		font:19px/50px "微软雅黑"; 
 		text-align:center;
 		margin:30px auto;
 		cursor:pointer;
 	}
 	.btn-submit:hover{
-		opacity:0.8;
+		background:yellow;
 	}
 	.btn-submit+span{
 		margin-left:304px;

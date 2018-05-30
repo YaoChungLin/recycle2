@@ -5,7 +5,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>数码在线回收</title>
+	<jsp:include page="header.jsp"></jsp:include>
 	<style type="text/css">
 		*{
 			padding:0px;
@@ -22,6 +23,9 @@
 	    width: 0;
 	    height: 0;
 	    visibility:hidden;
+		}
+		.content{
+			margin-top:72px;
 		}
 		.left-pic,.right-price{
 			padding:15px;
@@ -75,13 +79,20 @@
 		}
 	</style>
 	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.cookie.js"></script>
 	<script>
 		$(function(){
 		    //获取products页面传过来的session值
             var evaluatePrice=window.sessionStorage.getItem("data");
             var itemCatId=window.sessionStorage.getItem("itemCatId");
+            var tupian=window.sessionStorage.getItem("image");
+
+            console.log(tupian);
+
             //把评估价显示到界面
             $('.titleValue').text(evaluatePrice);
+            $('.tupian').attr("src",tupian);
+
 
             $("#btn-money").click(function () {
                 $(location).attr('href', '/rest/information/write');//跳转到评估结果页面
@@ -98,7 +109,7 @@
 <body>
 	<div class="content">
 		<div class="left-pic">
-			<img src="">
+			<img src="" class="tupian">
 		</div>
 		<div class="right-price">
 			<dl>

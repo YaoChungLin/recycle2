@@ -51,7 +51,7 @@
 					<!-- 搜索 -->
 						<div class="search">
 							<input type="text" name="search" id="search" placeholder="回收各种手机">
-							<div class="searchimg">111</div>
+							<div class="searchimg"><img src="/img/search_icon.png" alt=""></div>
 						</div>
 					<!--搜索结束-->
 					</div>
@@ -64,11 +64,11 @@
 			<div class="warp">
 				<div class="slide" id="slide">
 					<ul>
-						<li><img src="/img/slidepic1.jpg"></li>
-						<li><img src="/img/slidepic2.jpg"></li>
-						<li><img src="/img/slidepic3.jpg"></li>
-						<li><img src="/img/slidepic4.jpg"></li>
-						<li><img src="/img/slidepic5.jpg"></li>
+						<li><img src="/image/AD3.png"></li>
+						<li><img src="/image/AD2.png"></li>
+						<li><img src="/image/AD1.png"></li>
+						<li><img src="/image/AD5.png"></li>
+						<li><img src="/image/AD6.png"></li>
 					</ul>
 					<div class="arrow" id="arrow">
 						<a class="prev" id="prev" href="javascript:;"><</a>
@@ -114,25 +114,25 @@
 		<!-- third Page -->
 		<div class="section third">
 			<div class="thrpage">
-				<div class="thrleft"></div>
+				<div class="thrleft"><img class="leftImg" src="" alt=""></div>
 				<div class="thrrigth">
 					<div class="right-first"><img src="/img/slidepic2.jpg" alt="占位">
-						<div class="desc">便宜点100卖你了</div>
+						<div class="desc"><a href="">便宜点100卖你了</a></div>
 					</div>
 					<div class="right-second"><img src="/img/slidepic2.jpg" alt="占位">
-						<div class="desc">占位</div>
+						<div class="desc"><a href="">便宜点100卖你了</a></div>
 					</div>
 					<div class="right-third"><img src="/img/slidepic2.jpg" alt="占位">
-						<div class="desc">占位</div>
+						<div class="desc"><a href="">便宜点100卖你了</a></div>
 					</div>
 					<div class="right-forth"><img src="/img/slidepic2.jpg" alt="占位">
-						<div class="desc">占位</div>
+						<div class="desc"><a href="">便宜点100卖你了</a></div>
 					</div>
 					<div class="right-fifth"><img src="/img/slidepic2.jpg" alt="占位">
-						<div class="desc">占位</div>
+						<div class="desc"><a href="">便宜点100卖你了</a></div>
 					</div>
 					<div class="right-sixth"><img src="/img/slidepic2.jpg" alt="占位">
-						<div class="desc">占位</div>
+						<div class="desc"><a href="">便宜点100卖你了</a></div>
 					</div>
 				</div>
 			</div>
@@ -212,14 +212,12 @@
 		$('.navbar').parent().mouseover(function(){
 			$('.navbar').css('display','block');
 		})
-		$('.navbar').parent().mouseout(function(){
-			$('.nav-second').css('display','none');
-			$('.nav-third').css('display','none');
+		$('.navbar').parent().mouseleave(function(){
 			$('.navbar').css('display','none');
 		})
-		$('.navbar').mouseout(function(){
-			$('.nav-second').css('display','none');
-			$('.nav-third').css('display','none');
+		$('.navbar').mouseleave(function(){
+            $('.navbar-second').css('display','none');
+            $('.navbar-third').css("display","none");
 			$('.navbar').css('display','none');
 		})
 		function navshow(data){
@@ -227,6 +225,8 @@
 				$('.navbar-first li')[i].onmouseover = function(){
 					//$('.navbar-second').css('display','block');
                     var index = $(this).index('.navbar-first li');
+                    $('.navbar-second').css('display','none');
+                    $('.navbar-third').css("display","none");
 					$('.navbar-second').slideDown();
 					var thisTest = $(this).text();
 					console.log(index);
@@ -283,6 +283,7 @@
 		function navtshow(data,length){
 			for(var i=0;i<length;i++){
 				$('.navbar-second a')[i].onmouseover = function(){
+                    $('.navbar-third').css("display","none");
 					$('.navbar-third').slideDown();
 					var thisTest = $(this).text();
 					var index = $(this).index('.navbar-second a');

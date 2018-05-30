@@ -1,8 +1,5 @@
 package com.recycle.manage.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.recycle.common.ItemCatResult;
-import com.recycle.manage.service.ApiItemCatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -31,5 +28,18 @@ public class IndexController {
 
         mv.addObject("itemCatResultString",itemCatResultString);
         return mv;
+    }
+
+
+    /**
+     * 查询商品类目数据给导航
+     */
+    @RequestMapping(value = "api",method= RequestMethod.GET)
+    @ResponseBody
+    public String toApi(){
+        ResponseEntity<String> itemCatResult = this.apiItemCatController.queryItemCat();
+        String itemCatResultString = itemCatResult.getBody();
+        System.out.print(itemCatResultString);
+        return itemCatResultString;
     }
 }

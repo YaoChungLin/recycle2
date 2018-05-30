@@ -7,46 +7,15 @@
 	<meta charset="UTF-8">
 	<title>数码在线回收</title>
 	<link rel="stylesheet" type="text/css" href="/css/products.css">
+	<jsp:include page="header.jsp"></jsp:include>
 </head>
 <body>
-	<div class="nav clearfix">
-				<div class="w">
-					<img class="logo" src="/img/Logo4.png"></img>
-					<span>数码在线回收</span>
-					<ul>
-						<li><a href="/rest/front/index">首页</a></li>
-						<li><a href="">商城</a></li>
-						<li><a href="">导航</a>
-							<div class="navbar">
-								<div class="nav-bar"/>
-									<!-- 一级链接 -->
-								<div class="nav-bar-bottom">
-									<!-- 二级链接 -->
-								</div>
-							</div>
-						</li>
-						<li><a href="">关于</a></li>
-					</ul>
-					<div class="login">
-						<a href="/rest/page/loginAndRegister">登陆/注册</a>
-						<a href="">回收车</a>
-						<div class="num">0</div>
-					</div>
-					<!-- 搜索 -->
-						<div class="search">
-							<input type="text" name="search" id="search" placeholder="回收各种手机">
-							<div class="searchimg">111</div>
-						</div>
-					<!--搜索结束-->
-					</div>
-				</div>
-	</div>
-	<!-- nav end -->
-	<div class="content">
+
+	<div class="content clearfix">
 		<form action="#" method="post">
 			<div class="products">
 				<div class="left">
-					<img src="${image}" alt="产品图片" >
+					<img class="image" src="${image}" alt="产品图片" >
 				</div>
 				<div class="right">
 					<dl class="memory clearfix">
@@ -134,6 +103,7 @@
 </body>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript" src='/js/template-native.js'></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
 <%--<script type="text/javascript" src="/js/products.js"></script>--%>
 
 <script>
@@ -269,6 +239,7 @@
                         window.sessionStorage.setItem("data",data);
                         window.sessionStorage.setItem("itemCatId",${itemCatId});
                         window.sessionStorage.setItem("itemName","${itemName}");
+                        window.sessionStorage.setItem("image","${image}");
                         window.sessionStorage.setItem("itemDesc",itemDesc);
                        	$(location).attr('href', '/rest/page/evaluate');//跳转到评估结果页面
                     },

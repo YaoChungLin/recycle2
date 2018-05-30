@@ -7,40 +7,10 @@
 	<meta charset="UTF-8">
 	<title>数码在线回收</title>
 	<link rel="stylesheet" type="text/css" href="/css/information.css">
+	<jsp:include page="header.jsp"></jsp:include>
 </head>
 <body>
-	<div class="nav">
-				<div class="w clearfix">
-					<img class="logo" src="/img/Logo4.png"></img>
-					<span>测试用语</span>
-					<ul>
-						<li><a href="/rest/front/index">首页</a></li>
-						<li><a href="">商城</a></li>
-						<li><a href="">导航</a>
-							<div class="navbar">
-								<div class="nav-bar"/>
-									<!-- 一级链接 -->
-								<div class="nav-bar-bottom">
-									<!-- 二级链接 -->
-								</div>
-							</div>
-						</li>
-						<li><a href="">关于</a></li>
-					</ul>
-					<div class="login">
-						<a href="/rest/page/loginAndRegister">登陆/注册</a>
-						<a href="">回收车</a>
-						<div class="num">0</div>
-					</div>
-					<!-- 搜索 -->
-						<div class="search">
-							<input type="text" name="search" id="search" placeholder="回收各种手机">
-							<div class="searchimg">111</div>
-						</div>
-					<!--搜索结束-->
-					</div>
-				</div>
-	</div>
+
 	<div class="information">
 		<div class="ifm-content">
 			<form action="#" method="post">
@@ -103,7 +73,7 @@
 			</form>
 		</div>		
 	</div>
-	<div class="right-pic">此处应有图片</div>
+	<%--<div class="right-pic">此处应有图片</div>--%>
 	<div class="bottom">此处有待二期开发</div>
 </body>
 <script type="text/javascript" src="/js/jquery.min.js"></script>

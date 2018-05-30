@@ -6,7 +6,7 @@
     <head>
         <meta charset="UTF-8">
         <title>成功</title>
-        <meta http-equiv="refresh" content="3;url=/rest/front/index">
+        <meta http-equiv="refresh" content="1;url=/rest/front/index">
         <style>
             body {
                 background-attachment: fixed;
