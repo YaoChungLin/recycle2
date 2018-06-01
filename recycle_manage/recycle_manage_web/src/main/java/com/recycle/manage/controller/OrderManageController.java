@@ -114,7 +114,7 @@ public class OrderManageController {
      * @return
      */
     @RequestMapping(value="changeStatus",method= RequestMethod.POST)
-    public ResponseEntity<Void> removeOrder(@RequestParam("ids") Long ids ,@RequestParam("param") Integer param){
+    public ResponseEntity<Void> removeOrder(@RequestParam("ids") Long ids ,@RequestParam("param") String param){
         try {
             if(ids==null){
                 //参数有误，400

@@ -50,7 +50,7 @@
                 margin-bottom: 20px;
                 padding: 20px;
                 padding-left: 40px;
-                width: 60%;
+                width: 50%;
                 height: auto;
                 position: absolute;
                 left: 50%;
@@ -129,7 +129,7 @@
 
                         <c:forEach items="${orders}" var="order">
                             <tr>
-                                <td> <img style="width: 50px; height: 50px" src="/img/iPhoneX.jpg" /> </td>
+                                <td> <img style="width: 50px; height: 50px" src="${order.item_image}" /> </td>
                                 <td>${order.item_name} </td>
                                 <td>${order.order_id} </td>
                                 <td>￥${order.item_recycle_price}</td>

@@ -21,7 +21,7 @@
 				<th data-options="field:'receiver_address',width:200">地址</th>
 				<th data-options="field:'item_desc',width:235">产品情况</th>
 				<th data-options="field:'item_recycle_price',width:60">回收价格</th>
-				<th data-options="field:'status',width:60,align:'center',formatter:TAOTAO.formatOrderStatus">状态</th>
+				<th data-options="field:'status',width:60,align:'center'">状态</th>
 				<th data-options="field:'created',width:130,align:'center',formatter:TAOTAO.formatDateTime">创建日期</th>
 				<th data-options="field:'updated',width:130,align:'center',formatter:TAOTAO.formatDateTime">更新日期</th>
 			</tr>
@@ -102,7 +102,7 @@ var orderListToolbar = [{
         }
         $.messager.confirm('确认','确定对ID为 '+ids+' 的订单做“已取件”操作吗？',function(r){
             if (r){
-                var params = {"ids":ids,"param":2};
+                var params = {"ids":ids,"param":"已取件"};
                 $.ajax({
                     type: "POST",
                     url: "/rest/order/changeStatus",
@@ -137,7 +137,7 @@ var orderListToolbar = [{
         }
         $.messager.confirm('确认','确定对ID为 '+ids+' 的订单做“核实中”操作吗？',function(r){
             if (r){
-                var params = {"ids":ids,"param":3};
+                var params = {"ids":ids,"param":"核实中"};
                 $.ajax({
                     type: "POST",
                     url: "/rest/order/changeStatus",
@@ -172,7 +172,7 @@ var orderListToolbar = [{
         }
         $.messager.confirm('确认','确定对ID为 '+ids+' 的订单做“已付款”操作吗？',function(r){
             if (r){
-                var params = {"ids":ids,"param":4};
+                var params = {"ids":ids,"param":"已付款"};
                 $.ajax({
                     type: "POST",
                     url: "/rest/order/changeStatus",
@@ -207,7 +207,7 @@ var orderListToolbar = [{
         }
         $.messager.confirm('确认','确定对ID为 '+ids+' 的订单做“交易成功”操作吗？',function(r){
             if (r){
-                var params = {"ids":ids,"param":1};
+                var params = {"ids":ids,"param":"交易成功"};
                 $.ajax({
                     type: "POST",
                     url: "/rest/order/changeStatus",
@@ -242,7 +242,7 @@ var orderListToolbar = [{
         }
         $.messager.confirm('确认','确定对ID为 '+ids+' 的订单做“交易取消”操作吗？',function(r){
             if (r){
-                var params = {"ids":ids,"param":0};
+                var params = {"ids":ids,"param":"交易取消"};
                 $.ajax({
                     type: "POST",
                     url: "/rest/order/changeStatus",

@@ -7,6 +7,7 @@ import com.github.pagehelper.PageInfo;
 
 import com.recycle.common.EasyUIResult;
 import com.recycle.manage.mapper.OrderMapper;
+import com.recycle.manage.pojo.ItemCat;
 import com.recycle.manage.pojo.Order;
 import com.recycle.manage.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ public class OrderManageService extends BaseService<Order>{
     @Autowired
     private OrderMapper orderMapper;
 
+    @Autowired
+    private ItemCatService itemCatService;
 
     /**
      * 添加订单（下单）
@@ -28,11 +31,13 @@ public class OrderManageService extends BaseService<Order>{
     public Boolean saveOrder(Order order,User user){
 
         order.setId(null);
-        order.setStatus(5);
+        order.setStatus("已提交");
         order.setUser_id(user.getId());
         order.setUser_name(user.getUsername());
         //生成订单ID，规则：userid+当前时间戳
         order.setOrder_id(order.getUser_id()+""+System.currentTimeMillis());
+        ItemCat itemCat = this.itemCatService.queryById(order.getItem_cat());
+        order.setItem_image(itemCat.getImage());
         return super.save(order)==1;
 
     }
@@ -83,7 +88,7 @@ public class OrderManageService extends BaseService<Order>{
     /**
      * 改变订单状态值（1——交易成功；0——交易取消；2——已取件；3——寄件中；4——核实中；5——已付款；6——已提交）
      */
-    public Boolean removeOrder(Long ids,Integer param){
+    public Boolean removeOrder(Long ids,String param){
         Order order=this.queryById(ids);
         order.setStatus(param);
         return this.orderMapper.updateByPrimaryKey(order)==1;

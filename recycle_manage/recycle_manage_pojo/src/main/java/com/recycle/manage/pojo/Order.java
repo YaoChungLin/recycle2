@@ -42,8 +42,9 @@ public class Order extends BasePojo{
 
     private Float item_recycle_price;
 
-    private Integer status;
+    private String status;
 
+    private String item_image;
 
     public Long getId() {
         return id;
@@ -165,11 +166,19 @@ public class Order extends BasePojo{
         this.item_recycle_price = item_recycle_price;
     }
 
-    public Integer getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getItem_image() {
+        return item_image;
+    }
+
+    public void setItem_image(String item_image) {
+        this.item_image = item_image;
     }
 }
