@@ -123,9 +123,8 @@ public class UserManageController {
      * @return
      */
     @RequestMapping(value = "logout", method = RequestMethod.POST)
-    public ResponseEntity<Void> doLogin( HttpServletRequest request, HttpServletResponse response,@RequestBody User user) throws Exception {
+    public ResponseEntity<Void> doLogout( HttpServletRequest request, HttpServletResponse response,@RequestBody User user) throws Exception {
         try {
-            System.out.print(user.getUsername());
             this.userManageService.logout(user.getUsername());
             CookieUtils.deleteCookie(request,response,COOKIE_NAME);
             return ResponseEntity.status(HttpStatus.CREATED).build();

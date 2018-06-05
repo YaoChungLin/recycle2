@@ -20,7 +20,6 @@ public class User extends BasePojo{
 
     private String username;
 
-    @JsonIgnore//json序列化时忽略该字段
     private String password;
     
     private String phone;

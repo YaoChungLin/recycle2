@@ -71,20 +71,35 @@
                 padding-left: 10px;
                 padding-right: 10px;
             }
-            
+            #home{
+                width:22px;
+                height:24px;
+            }
         </style>
+        <script src="/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                var username=$.cookie("TT_TOKEN");
+                var edithref='/rest/UserInformation/edit/'+username;
+                $('#editbutton').attr('href',edithref);
+            })
+        </script>
+
     </head>
 
     <body>
         <div id="Profle">
             <img id="ProfleIMG" src="/img/profle.png" />
-            <h3> ${user.username} </h3>
+            <div></div>
+            <a href="/rest/front/index" > <img id="home" src="/img/home.png" /></a>
+            <h3 style="display:inline;margin-right:24px" > ${user.username} </h3>
         </div>
         
         <div id="UserInfo">
             <div>
                 <h3 style="display: inline"> 个人信息 </h3>
-                <a href="/rest/page/EditInfo"> <img id="EditICON" src="/img/EditIcon.png" /> </a>
+                <a href="" id="editbutton"> <img id="EditICON" src="/img/EditIcon.png" /> </a>
             </div>
             
             <div style="margin-top: 20px">
