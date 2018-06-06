@@ -131,7 +131,30 @@ public class OrderManageController {
         }
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
-    
+
+    /**
+     * 取消交易
+     * @param id
+     * @return
+     */
+    @RequestMapping(value="/cancel/{id}",method= RequestMethod.GET)
+    public ResponseEntity<Void> cancelOrder(@PathVariable(value = "id") String id){
+        try {
+            if(id==null){
+                //参数有误，400
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            }
+            Boolean bool = this.orderManageService.cancelOrder(id);
+            if (!bool){
+                //失败
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            }
+            return ResponseEntity.status(HttpStatus.CREATED).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
 
 
 }

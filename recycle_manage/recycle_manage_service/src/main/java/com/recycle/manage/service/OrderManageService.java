@@ -10,6 +10,7 @@ import com.recycle.manage.mapper.OrderMapper;
 import com.recycle.manage.pojo.ItemCat;
 import com.recycle.manage.pojo.Order;
 import com.recycle.manage.pojo.User;
+import com.sun.org.apache.xpath.internal.operations.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -92,5 +93,16 @@ public class OrderManageService extends BaseService<Order>{
         Order order=this.queryById(ids);
         order.setStatus(param);
         return this.orderMapper.updateByPrimaryKey(order)==1;
+    }
+
+    /**
+     * 取消交易
+     */
+    public Boolean cancelOrder(String id){
+        Order order=new Order();
+        order.setOrder_id(id);
+        Order queryOne = this.queryOne(order);
+        queryOne.setStatus("交易取消");
+        return this.orderMapper.updateByPrimaryKey(queryOne)==1;
     }
 }

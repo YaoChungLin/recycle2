@@ -108,6 +108,41 @@
         	});
         }
     },'-',{
+        text:'已提交',
+        iconCls:'icon-remove',
+        handler:function(){
+            var ids = getSelectionsIds();
+            if(ids.length == 0){
+                $.messager.alert('提示','未选中订单!');
+                return ;
+            }
+            $.messager.confirm('确认','确定对ID为 '+ids+' 的订单做“已提交”操作吗？',function(r){
+                if (r){
+                    var params = {"ids":ids,"param":"已提交"};
+                    $.ajax({
+                        type: "POST",
+                        url: "/rest/order/changeStatus",
+                        data: params,
+                        statusCode:{
+                            201:function(){
+                                $.messager.alert('提示','操作成功!','info',function(){
+                                    $("#itemEditWindow").window('close');
+                                    $("#orderList").datagrid("reload");
+                                });
+                            },
+                            500:function(){
+                                $.messager.alert('提示','操作失败!');
+                            },
+                            400:function(){
+                                $.messager.alert('提示','参数有误，请检查后提交!');
+                            }
+                        }
+
+                    });
+                }
+            });
+        }
+    },'-',{
         text:'核实中',
         iconCls:'icon-remove',
         handler:function(){
