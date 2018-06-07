@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> 修改个人信息 </title>
+        <title>数码在线回收-修改个人信息 </title>
         <meta charset="utf-8">
         
         <style>
@@ -115,6 +115,47 @@
                 var username=$.cookie("TT_TOKEN");
                 var edithref='/rest/UserInformation/editPassword/'+username;
                 $('#editPassword').attr('href',edithref);
+
+                $('#phone').blur(function () {
+                    var phone=document.getElementById("phone").value;
+                    $.ajax({
+                        url:'/rest/user/'+phone+'/2',
+                        type:'GET',
+                        contentType: 'application/json; charset=utf-8',
+                        statusCode:{
+                            201:function(){
+                            },
+                            400:function(){
+                                alert("该手机号码已经被注册，请重新输入！！！");
+                                window.location.reload();
+                            },
+                            500:function(){
+                                alert("服务出错，请稍后再试！！！");
+                                window.location.reload();
+                            }
+                        }
+                    })
+                })
+                $('#email').blur(function () {
+                    var email=document.getElementById("email").value;
+                    $.ajax({
+                        url:'/rest/user/'+email+'/3',
+                        type:'GET',
+                        contentType: 'application/json; charset=utf-8',
+                        statusCode:{
+                            201:function(){
+                            },
+                            400:function(){
+                                alert("该用户已经被注册，请重新输入！！！");
+                                window.location.reload();
+                            },
+                            500:function(){
+                                alert("服务出错，请稍后再试！！！");
+                                window.location.reload();
+                            }
+                        }
+                    })
+                })
             })
         </script>
     </head>

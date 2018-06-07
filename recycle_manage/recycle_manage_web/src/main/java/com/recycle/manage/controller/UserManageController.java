@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -31,14 +30,14 @@ public class UserManageController {
      */
     @RequestMapping(value="{param}/{type}",method=RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<Boolean> check(@PathVariable("param") String param,
+    public ResponseEntity<Void> check(@PathVariable("param") String param,
                                          @PathVariable("type") Integer type){
         try {
             Boolean bool=this.userManageService.check(param,type);
-            if(null==bool) {
+            if(!bool) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
             }
-            return ResponseEntity.ok(bool);
+            return ResponseEntity.status(HttpStatus.CREATED).build();
         } catch (Exception e) {
             // TODO: handle exception
         }
@@ -158,7 +157,7 @@ public class UserManageController {
      */
     @RequestMapping( value = "doRegister",method=RequestMethod.POST)
     public ModelAndView registerUser( User user){
-        ModelAndView succeedmv=new ModelAndView("succeed");
+        ModelAndView succeedmv=new ModelAndView("loginAndRegister");
         ModelAndView failmv=new ModelAndView("failed");
         try {
             if(StringUtils.isEmpty(user.getUsername())){
@@ -172,7 +171,6 @@ public class UserManageController {
                 failmv.addObject("msg","注册出错！！！请稍后再试！");
                 return failmv;
             }
-            succeedmv.addObject("msg","注册");
             return succeedmv;
         } catch (Exception e) {
             e.printStackTrace();

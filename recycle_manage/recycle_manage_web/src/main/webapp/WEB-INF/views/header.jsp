@@ -34,6 +34,9 @@
             console.log(data);
             $('.loginName label').click(function(){
                 //跳转到个人页面
+                var name = $(this).text();
+                var igmHref = '/rest/UserInformation/query/'+name;
+                $(location).attr('href', igmHref);
             })
             $('.loginName a').click(function(){
                 /*注销cookie*/
