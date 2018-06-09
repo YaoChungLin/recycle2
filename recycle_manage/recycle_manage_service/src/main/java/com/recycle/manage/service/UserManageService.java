@@ -70,6 +70,11 @@ public class UserManageService extends BaseService<User>{
             return null;
         }
 
+        if(user.getStatus()!=1){
+            //用户被拉黑
+            return null;
+        }
+
         if (!StringUtils.equals(DigestUtils.md5Hex(password),user.getPassword())) {
             // 密码错误
             return null;
@@ -119,7 +124,6 @@ public class UserManageService extends BaseService<User>{
         user.setId(null);
         user.setIsmanager(0);
         user.setStatus(1);
-        user.setEmail(null);
         //密码加密处理，使用MD5
         user.setPassword(DigestUtils.md5Hex(user.getPassword()));
         return super.save(user)==1;

@@ -156,7 +156,7 @@ public class UserManageController {
      * 新增用户
      */
     @RequestMapping( value = "doRegister",method=RequestMethod.POST)
-    public ModelAndView registerUser( User user){
+    public ModelAndView registerUser( User user,HttpServletResponse response){
         ModelAndView succeedmv=new ModelAndView("loginAndRegister");
         ModelAndView failmv=new ModelAndView("failed");
         try {
