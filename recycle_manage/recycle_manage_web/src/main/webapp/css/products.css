@@ -78,7 +78,9 @@
 	}
 	.memory .memorykind li{
 		display:block;
-		width:100px;
+		width:auto;
+		padding:0 10px;
+		margin-bottom:5px;
 		height:40px;
 		margin-left:15px;
 		float:left;

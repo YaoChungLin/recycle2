@@ -32,7 +32,7 @@
                 border-radius: 20px;
                 padding: 20px;
                 padding-left: 40px;
-                width: 30%;
+                width: 35%;
                 height: 150px;
                 position: absolute;
                 left: 50%;
@@ -50,26 +50,36 @@
                 margin-bottom: 20px;
                 padding: 20px;
                 padding-left: 40px;
-                width: 50%;
+                width: 80%;
                 height: auto;
                 position: absolute;
                 left: 50%;
                 top: 400px;
                 transform: translate(-50%);
             }
-            
-            table {
+            .per th{
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            .per td{
+                  padding-left: 10px;
+                  padding-right: 10px;
+              }
+             table {
                 color: azure;
             }
             
-            th {
-                padding-left: 10px;
-                padding-right: 10px;
+             .pro th {
+                /*padding-left: 10px;*/
+                /*padding-right: 10px;*/
+                width:14%;
             }
             
-            td {
-                padding-left: 10px;
-                padding-right: 10px;
+             .pro td {
+                /*padding-left: 10px;*/
+                /*padding-right: 10px;*/
+                width:14%;
+                text-align:center;
             }
             #home{
                 width:22px;
@@ -163,7 +173,7 @@
             </div>
             
             <div style="margin-top: 20px">
-                <table>
+                <table class="per">
                     <tr>
                         <td> <img src="/img/Tel.png" /> </td>
                         <td> <strong> Tel： </strong> </td>
@@ -192,7 +202,7 @@
             </div>
             
             <div>
-                <table align="center" cellpadding="10">
+                <table align="center" cellpadding="10" class="pro">
                     <tr>
                         <th> </th>
                         <th> 商品 </th>
